@@ -14,9 +14,9 @@ export class UserComponent implements OnInit {
   email: string;
   address: Address;
   hobbies: string[];
-  hello: any;
   posts: Post[];
-  isEdit: boolean = false;
+  showUpdate: boolean = false;
+  hideShow: string;
 
   constructor(private jsonPlaceHolderService: JsonPlaceHolderService) { }
 
@@ -30,18 +30,18 @@ export class UserComponent implements OnInit {
       state: 'TX'
     }
     this.hobbies = ['Write code', 'Watch movies', 'Swimming'];
+    this.hideShow = 'Update User';
     this.getJSONPlaceholderPosts();
   }
 
-  getJSONPlaceholderPosts(){
+  getJSONPlaceholderPosts() {
     this.jsonPlaceHolderService.getPosts().subscribe((posts) => {
       this.posts = posts;
     });
   }
-  
+
   onClick() {
     this.name = `Bharat Pandey 'bpaans'`;
-    this.hobbies.push('+ bpaans');
   }
 
   addHobby(hobby) {
@@ -57,8 +57,14 @@ export class UserComponent implements OnInit {
     }
   }
 
-  toggleEdit(){
-    this.isEdit = !this.isEdit;
+  toggleEdit() {
+    if (!this.showUpdate) {
+      this.hideShow = 'Collapse Update Section';
+    } else {
+      this.hideShow = 'Update User'
+    }
+    this.showUpdate = !this.showUpdate;
+
   }
 
 }

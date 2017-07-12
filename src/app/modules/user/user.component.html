@@ -1,16 +1,16 @@
 <h1>Angular 4 App with Lazy Loading  Modules</h1>
 <h3>by {{name}}</h3>
 <p>Lazy loading speeds up the application load time by splitting it into multiple bundles, and loading them on demand, as the user navigates throughout the app. As a result, the initial bundle is much smaller, which improves the bootstrap time.</p>
-<h5>Need some help?</h5>
+<h4>Contact info:</h4>
 <ul>
     <li>SC: {{email}}</li>
     <li>HC: {{address.street}} {{address.city}}, {{address.state}}</li>
 </ul>
-<button (click)="onClick()">+ bpaans</button>
+<button (click)="onClick()">Add Nick Name</button>
 
-<button (click)="toggleEdit()">Update</button>
+<button (click)="toggleEdit()">{{hideShow}}</button>
 
-  <div *ngIf=isEdit> 
+  <div *ngIf=showUpdate> 
     <h2>Update User</h2>
     <form>
         <div>
@@ -43,7 +43,7 @@
 <h1>Hobbies</h1>
 <form (submit)="addHobby(hobby.value)">
     <div>
-        <label for="hobby">Hobby:</label>
+        <label for="hobby">Add a Hobby:</label>
         <input type="text" #hobby>
     </div>
 </form>
