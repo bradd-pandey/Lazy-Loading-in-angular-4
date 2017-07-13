@@ -1,0 +1,42 @@
+<h1>Welcome to Dashboard: An Eager Loading Module</h1>
+<h4>This is {{person.name}}. He loves to develop Angular applications. His contact details is as follows. If you think the information
+  provided by him is not valid, then click on UPDATE INFO button to correct it.</h4>
+<ul>
+  <li>Email: {{person.email}}</li>
+  <li>Address: {{address.street}} {{address.city}}, {{address.state}}</li>
+</ul>
+<button (click)="onClick()">SHOW FULL NAME</button>
+<button (click)="toggleEdit()">{{hideShow}}</button>
+
+<div *ngIf=showUpdate>
+  <h2>UPDATE INFO</h2>
+  <form>
+    <div>
+      <label for="name">Name: </label><br>
+      <input type="text" [(ngModel)]="person.name" name="name">
+    </div>
+    <div>
+      <label for="age">Age: </label><br>
+      <input type="number" [(ngModel)]="person.age" name="age">
+    </div>
+    <div>
+      <label for="email">Email: </label><br>
+      <input type="text" [(ngModel)]="person.email" name="email">
+    </div>
+    <div>
+      <label for="street">Street: </label><br>
+      <input type="text" [(ngModel)]="address.street" name="street">
+    </div>
+    <div>
+      <label for="city">City: </label><br>
+      <input type="text" [(ngModel)]="address.city" name="city">
+    </div>
+    <div>
+      <label for="state">State: </label><br>
+      <input type="text" [(ngModel)]="address.state" name="state">
+    </div>
+  </form>
+</div>
+<div>
+  <h4>PS: Navigate to <a href="http://localhost:4200/user">Lazy Loading USER Module</a></h4>
+</div>

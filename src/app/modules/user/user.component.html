@@ -1,49 +1,11 @@
 <h1>Angular 4 App with Lazy Loading  Modules</h1>
 <h3>by {{name}}</h3>
 <p>Lazy loading speeds up the application load time by splitting it into multiple bundles, and loading them on demand, as the user navigates throughout the app. As a result, the initial bundle is much smaller, which improves the bootstrap time.</p>
-<h4>Contact info:</h4>
-<ul>
-    <li>SC: {{email}}</li>
-    <li>HC: {{address.street}} {{address.city}}, {{address.state}}</li>
-</ul>
-<button (click)="onClick()">Add Nick Name</button>
 
-<button (click)="toggleEdit()">{{hideShow}}</button>
-
-  <div *ngIf=showUpdate> 
-    <h2>Update User</h2>
-    <form>
-        <div>
-            <label for="name">Name: </label><br>
-            <input type="text" [(ngModel)]="name" name="name">
-        </div>
-        <div>
-            <label for="age">Age: </label><br>
-            <input type="number" [(ngModel)]="age" name="age">
-        </div>
-        <div>
-            <label for="email">Email: </label><br>
-            <input type="text" [(ngModel)]="email" name="email">
-        </div>
-        <div>
-            <label for="street">Street: </label><br>
-            <input type="text" [(ngModel)]="address.street" name="street">
-        </div>
-        <div>
-            <label for="city">City: </label><br>
-            <input type="text" [(ngModel)]="address.city" name="city">
-        </div>
-        <div>
-            <label for="state">State: </label><br>
-            <input type="text" [(ngModel)]="address.state" name="state">
-        </div>
-    </form>
- </div>  
-
-<h1>Hobbies</h1>
+<h1>What do you like to do for fun? Like hobbies and such?</h1>
 <form (submit)="addHobby(hobby.value)">
     <div>
-        <label for="hobby">Add a Hobby:</label>
+        <label for="hobby">Hobby ++</label>
         <input type="text" #hobby>
     </div>
 </form>
@@ -53,8 +15,8 @@
     </li>
 </ul>
 
- <h1>Fake Online REST API</h1>
- <p>[ Source: <a href="https://jsonplaceholder.typicode.com/posts">JSONPlaceholder</a> ]</p>
+<h1>Implementation of Http GET Service</h1>
+ <p>[Data Source: <a href="https://jsonplaceholder.typicode.com/posts">Fake Online REST API</a>]</p>
 <div *ngFor="let post of posts">
     <h4>{{post.title}}</h4>
     <p>{{post.body}}</p>

@@ -10,27 +10,15 @@ import { JsonPlaceHolderService } from './services/json-place-holder.service';
 })
 export class UserComponent implements OnInit {
   name: string;
-  age: number;
-  email: string;
-  address: Address;
   hobbies: string[];
   posts: Post[];
   showUpdate: boolean = false;
-  hideShow: string;
 
   constructor(private jsonPlaceHolderService: JsonPlaceHolderService) { }
 
   ngOnInit() {
     this.name = 'Bharat Pandey';
-    this.email = 'bpaans@example.com';
-    this.age = 30;
-    this.address = {
-      street: '1400 Esters RD',
-      city: 'Irving',
-      state: 'TX'
-    }
     this.hobbies = ['Write code', 'Watch movies', 'Swimming'];
-    this.hideShow = 'Update User';
     this.getJSONPlaceholderPosts();
   }
 
@@ -38,10 +26,6 @@ export class UserComponent implements OnInit {
     this.jsonPlaceHolderService.getPosts().subscribe((posts) => {
       this.posts = posts;
     });
-  }
-
-  onClick() {
-    this.name = `Bharat Pandey 'bpaans'`;
   }
 
   addHobby(hobby) {
@@ -55,16 +39,6 @@ export class UserComponent implements OnInit {
         this.hobbies.splice(i, 1);
       }
     }
-  }
-
-  toggleEdit() {
-    if (!this.showUpdate) {
-      this.hideShow = 'Collapse Update Section';
-    } else {
-      this.hideShow = 'Update User'
-    }
-    this.showUpdate = !this.showUpdate;
-
   }
 
 }

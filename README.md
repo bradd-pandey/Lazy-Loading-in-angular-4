@@ -1,28 +1,80 @@
-# Angular-4-App
+# Getting started with Angular 4 application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
+## Prerequisites
+Both the CLI and generated project have dependencies that require [Node 6.9.0 or higher] (https://nodejs.org/en/), together with NPM 3 or higher.
 
-## Development server
+## Source code editor
+[Visual Studio Code] (https://code.visualstudio.com/) includes Integrated terminal, debugging and extensions, can be a good option.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Create Angular project
+This project was generated with [Angular CLI] (https://github.com/angular/angular-cli) version 1.2.0.
+
+1. Open up VC code terminal and install angular cli globally. Run `npm install -g @angular/cli`
+2. cd into your desire/projects folder and create new project, Run `ng new ng4-app`
+3. cd into your-project-name; in this case `ng4-app` folder
+4. Run `ng serve` or, `npm start` for a development server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. You can also configure the default HTTP host and port used by the development server with two command-line options: `ng serve --host 0.0.0.0 --port 4201`
 
 ## Code scaffolding
-
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+# Lazy Loading in Angular 4 application
+Lazy loading speeds up the application load time by splitting it into multiple bundles, and loading them on demand, as the user navigates throughout the app. As a result, the initial bundle is much smaller, which improves the bootstrap time.
 
-## Running unit tests
+## Lets get into it
+1. cd into `ng4-app` folder
+2. generate a module inside `ng4-app/modules` folder. Run `ng generate module modules/user` or, `ng g module modules/user` 
+3. set up routes in `app.module.ts`
+...
+import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './modules/dashboard/dashboard.component';
+...
+//  `dashboard component => Eager loading` and `user module => lazy loading` 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
+  {
+      path: 'dashboard', 
+      component: DashboardComponent, 
+  },
+  {
+    path: 'user',
+    loadChildren: 'app/modules/user/user.module#UserModule'
+  }
+];
 
-## Running end-to-end tests
+@NgModule({
+    ...
+  imports: [
+    `RouterModule.forRoot(routes)`
+  ],
+  ...
+})
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+4. replace `app.component.html` content by `<router-outlet></router-outlet>`
+5. set up routes in `user.module.ts`
+...
+import { Routes, RouterModule } from '@angular/router';
+...
+const routes: Routes = [
+    {
+        path: '',
+        component: UserComponent
+    }
+];
 
-## Further help
+@NgModule({
+    ...
+   imports: [
+    ...
+    `RouterModule.forChild(routes)`
+  ],
+  ...
+})
+6. Run `ng serve` or, `npm start` for a development server. Navigate to `http://localhost:4200/`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
