@@ -21,7 +21,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 # Lazy Loading in Angular 4 application
 Lazy loading speeds up the application load time by splitting it into multiple bundles, and loading them on demand, as the user navigates throughout the app. As a result, the initial bundle is much smaller, which improves the bootstrap time.
 
-## Lets get into it
+## Lets get into it!
 1. cd into `ng4-app` folder
 2. generate a module inside `ng4-app/modules` folder. Run `ng generate module modules/user` or, `ng g module modules/user` 
 3. set up routes in `app.module.ts`
@@ -29,9 +29,7 @@ Lazy loading speeds up the application load time by splitting it into multiple b
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 ...
-//  `dashboard component => Eager loading` and `user module => lazy loading` 
-
-const routes: Routes = [
+//  `dashboard component => Eager loading` and `user module => lazy loading` const routes: Routes = [
   {
     path: '',
     redirectTo: 'dashboard',
@@ -45,9 +43,7 @@ const routes: Routes = [
     path: 'user',
     loadChildren: 'app/modules/user/user.module#UserModule'
   }
-];
-
-@NgModule({
+]; @NgModule({
     ...
   imports: [
     `RouterModule.forRoot(routes)`
@@ -65,9 +61,7 @@ const routes: Routes = [
         path: '',
         component: UserComponent
     }
-];
-
-@NgModule({
+]; @NgModule({
     ...
    imports: [
     ...
