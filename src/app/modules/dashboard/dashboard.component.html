@@ -1,15 +1,26 @@
-<h1>Welcome to Dashboard: An Eager Loading Module</h1>
-<h4>This is {{person.name}}. He loves to develop Angular applications. His contact details is as follows. If you think the information
-  provided by him is not valid, then click on UPDATE INFO button to correct it.</h4>
+<h2>
+  Welcome to Dashboard: <em>An Eager Loading Module</em>
+</h2>
+<p>When we load our application for the first time, the Dashboard Module along the Dashboard Component will be loaded in the
+  browser and that is what we are seeing right here. Until this point, the lazy loading User Module has not being downloaded,
+  only when we click the link Lazy Module the required code will be downloaded and we will see content of User Component
+  in the browser.
+</p>
+
+<h4>
+  <em>Well, my name is {{person.name}}. I love to develop Angular applications. Here goes my contact details:</em>
+</h4>
 <ul>
-  <li>Email: {{person.email}}</li>
-  <li>Address: {{address.street}} {{address.city}}, {{address.state}}</li>
+  <li>Name: <strong>{{person.name}}</strong></li>
+  <li>Email: <strong>{{person.email}}</strong></li>
+  <li>Address: <strong>{{address.street}} {{address.city}}, {{address.state}}</strong></li>
 </ul>
-<button (click)="onClick()">SHOW FULL NAME</button>
+
+<button (click)="onClick()">Show Full Name</button>
 <button (click)="toggleEdit()">{{hideShow}}</button>
 
 <div *ngIf=showUpdate>
-  <h2>UPDATE INFO</h2>
+  <h3>Update Info</h3>
   <form>
     <div>
       <label for="name">Name: </label><br>
@@ -37,6 +48,9 @@
     </div>
   </form>
 </div>
-<div>
-  <h4>PS: Navigate to <a href="http://localhost:4200/user">Lazy Loading USER Module</a></h4>
-</div>
+
+<p>
+  PS: If you think the information provided right here is not valid; 
+  you should be able to click update info button to correct it.
+</p>
+<strong>Thank you!</strong>

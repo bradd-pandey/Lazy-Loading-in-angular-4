@@ -1,23 +1,24 @@
-<h1>Angular 4 App with Lazy Loading  Modules</h1>
-<h3>by {{name}}</h3>
-<p>Lazy loading speeds up the application load time by splitting it into multiple bundles, and loading them on demand, as the user navigates throughout the app. As a result, the initial bundle is much smaller, which improves the bootstrap time.</p>
+<h2>Welcome to User Module: A Lazy Loading Module</h2>
+<p>Lazy loading speeds up the application load time by splitting it into multiple bundles, and loading them on demand, as the
+    user navigates throughout the app. As a result, the initial bundle is much smaller, which improves the bootstrap time.</p>
 
-<h1>What do you like to do for fun? Like hobbies and such?</h1>
+<h3>What do you like to do for fun? Like hobbies and such?</h3>
+<p><strong><em>Add/Remove hobbies:</em></strong></p>
 <form (submit)="addHobby(hobby.value)">
     <div>
-        <label for="hobby">Hobby ++</label>
+        <label for="hobby">+</label>
         <input type="text" #hobby>
     </div>
 </form>
 <ul>
     <li *ngFor="let hobby of hobbies; let i = index">
-        {{i + 1}}: {{hobby}} <button (click)="deleteHobby(hobby)">X</button>
+        {{i + 1}}: {{hobby}} <button (click)="deleteHobby(hobby)">x</button>
     </li>
 </ul>
 
-<h1>Implementation of Http GET Service</h1>
- <p>[Data Source: <a href="https://jsonplaceholder.typicode.com/posts">Fake Online REST API</a>]</p>
+<h3>Implementation of Http GET Service</h3>
+<p>[Data Source: <a href="https://jsonplaceholder.typicode.com/posts">Fake Online REST API</a>]</p>
 <div *ngFor="let post of posts">
     <h4>{{post.title}}</h4>
     <p>{{post.body}}</p>
-</div> 
+</div>

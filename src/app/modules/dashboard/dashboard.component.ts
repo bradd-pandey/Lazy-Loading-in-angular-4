@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.person = {
-      name: 'Mr. Pandey',
+      name: 'Bharat',
       email: 'bpaans@example.com',
       age: 30
     };
@@ -27,18 +27,18 @@ export class DashboardComponent implements OnInit {
       state: 'TX'
     };
     this.showUpdate = false;
-    this.hideShow = 'UPDATE INFO';
+    this.hideShow = 'Update Info';
   }
 
   onClick() {
-    this.person.name = 'Mr. Bharat Pandey';
+    this.person.name = 'Bharat Pandey';
   }
 
   toggleEdit() {
     if (!this.showUpdate) {
-      this.hideShow = 'COLLAPSE NOW';
+      this.hideShow = 'Collapse Now';
     } else {
-      this.hideShow = 'UPDATE INFO'
+      this.hideShow = 'Update Info'
     }
     this.showUpdate = !this.showUpdate;
   }
